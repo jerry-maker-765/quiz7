@@ -1,0 +1,24 @@
+set.seed(42)
+
+# Sample size
+n <- 1000
+
+# Simulate independent variables
+race <- sample(c('Race1', 'Race2', 'Race3'), size = n, replace = TRUE, prob = c(0.5, 0.3, 0.2))
+gender <- sample(c('Male', 'Female'), size = n, replace = TRUE, prob = c(0.5, 0.5))
+
+# Initialize vote_preference vector
+vote_preference <- character(n)
+
+# Loop through each individual and assign vote preference based on race and gender
+for (i in 1:n) {
+  if (race[i] == 'Race1' && gender[i] == 'Male') {
+    vote_preference[i] <- sample(c('Vote_Option1', 'Vote_Option2'), size = 1, prob = c(0.6, 0.4))
+  } else if (race[i] == 'Race1') {
+    vote_preference[i] <- sample(c('Vote_Option1', 'Vote_Option2'), size = 1, prob = c(0.55, 0.45))
+  } else if (gender[i] == 'Male') {
+    vote_preference[i] <- sample(c('Vote_Option1', 'Vote_Option2'), size = 1, prob = c(0.53, 0.47))
+  } else {
+    vote_preference[i] <- sample(c('Vote_Option1', 'Vote_Option2'), size = 1, prob = c(0.5, 0.5))
+  }
+}
